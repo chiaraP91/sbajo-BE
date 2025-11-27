@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_allergenis",
+  "info": {
+    "displayName": "allergeni",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "nome": {
+      "type": "string"
+    },
+    "codice": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

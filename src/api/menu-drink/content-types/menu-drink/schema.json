@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "menus",
+  "collectionName": "menu_drinks",
   "info": {
-    "singularName": "menu",
-    "pluralName": "menus",
-    "displayName": "MenuFood"
+    "singularName": "menu-drink",
+    "pluralName": "menu-drinks",
+    "displayName": "MenuDrink"
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "nome": {
-      "type": "string"
+      "type": "text"
     },
     "tipologia": {
       "type": "string"
@@ -26,11 +26,11 @@
     "attivo": {
       "type": "boolean"
     },
-    "collegamento_food": {
+    "collegamento_drink": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu-drink.menu-drink",
-      "inversedBy": "collegamento_drink"
+      "target": "api::menu.menu",
+      "mappedBy": "collegamento_food"
     },
     "allergeni": {
       "type": "component",

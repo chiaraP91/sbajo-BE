@@ -467,10 +467,44 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMenuDrinkMenuDrink extends Struct.CollectionTypeSchema {
+  collectionName: 'menu_drinks';
+  info: {
+    displayName: 'MenuDrink';
+    pluralName: 'menu-drinks';
+    singularName: 'menu-drink';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
+    attivo: Schema.Attribute.Boolean;
+    collegamento_drink: Schema.Attribute.Relation<'oneToOne', 'api::menu.menu'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descrizione: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::menu-drink.menu-drink'
+    > &
+      Schema.Attribute.Private;
+    nome: Schema.Attribute.Text;
+    prezzo: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    tipologia: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   collectionName: 'menus';
   info: {
-    displayName: 'Menu';
+    displayName: 'MenuFood';
     pluralName: 'menus';
     singularName: 'menu';
   };
@@ -478,8 +512,12 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    allergeni: Schema.Attribute.Text;
+    allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
     attivo: Schema.Attribute.Boolean;
+    collegamento_food: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::menu-drink.menu-drink'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1008,6 +1046,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::menu-drink.menu-drink': ApiMenuDrinkMenuDrink;
       'api::menu.menu': ApiMenuMenu;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
