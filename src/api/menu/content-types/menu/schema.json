@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string"
+    },
+    "tipologia": {
+      "type": "string"
+    },
+    "descrizione": {
+      "type": "text"
+    },
+    "prezzo": {
+      "type": "decimal"
+    },
+    "allergeni": {
+      "type": "text"
+    },
+    "attivo": {
+      "type": "boolean"
+    }
+  }
+}
