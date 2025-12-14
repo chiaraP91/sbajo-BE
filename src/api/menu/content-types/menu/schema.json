@@ -11,6 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "ref_id": {
+      "type": "string",
+      "default": "{{documentId}}"
+    },
     "nome": {
       "type": "string"
     },
@@ -29,7 +33,10 @@
       "repeatable": true
     },
     "coll_food": {
-      "type": "integer"
+      "type": "string"
+    },
+    "coll_drink": {
+      "type": "string"
     }
   }
 }

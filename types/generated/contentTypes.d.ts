@@ -479,8 +479,8 @@ export interface ApiMenuDrinkMenuDrink extends Struct.CollectionTypeSchema {
   };
   attributes: {
     allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
-    coll_drink: Schema.Attribute.Integer;
-    coll_food: Schema.Attribute.Integer;
+    coll_drink: Schema.Attribute.String;
+    coll_food: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -494,6 +494,8 @@ export interface ApiMenuDrinkMenuDrink extends Struct.CollectionTypeSchema {
     nome: Schema.Attribute.Text;
     prezzo: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    ref_id: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'{{documentId}}'>;
     tipologia: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -513,7 +515,8 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   };
   attributes: {
     allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
-    coll_food: Schema.Attribute.Integer;
+    coll_drink: Schema.Attribute.String;
+    coll_food: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -524,6 +527,8 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     nome: Schema.Attribute.String;
     prezzo: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    ref_id: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'{{documentId}}'>;
     tipologia: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
