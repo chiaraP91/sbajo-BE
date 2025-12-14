@@ -479,8 +479,8 @@ export interface ApiMenuDrinkMenuDrink extends Struct.CollectionTypeSchema {
   };
   attributes: {
     allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
-    attivo: Schema.Attribute.Boolean;
-    collegamento_drink: Schema.Attribute.Relation<'oneToOne', 'api::menu.menu'>;
+    coll_drink: Schema.Attribute.Integer;
+    coll_food: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -513,11 +513,7 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   };
   attributes: {
     allergeni: Schema.Attribute.Component<'shared.allergeni', true>;
-    attivo: Schema.Attribute.Boolean;
-    collegamento_food: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::menu-drink.menu-drink'
-    >;
+    coll_food: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

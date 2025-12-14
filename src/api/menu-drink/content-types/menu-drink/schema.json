@@ -23,19 +23,16 @@
     "prezzo": {
       "type": "decimal"
     },
-    "attivo": {
-      "type": "boolean"
-    },
-    "collegamento_drink": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::menu.menu",
-      "mappedBy": "collegamento_food"
-    },
     "allergeni": {
       "type": "component",
       "component": "shared.allergeni",
       "repeatable": true
+    },
+    "coll_food": {
+      "type": "integer"
+    },
+    "coll_drink": {
+      "type": "integer"
     }
   }
 }
